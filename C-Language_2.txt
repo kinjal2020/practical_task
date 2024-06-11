@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int diagonalSum(int mat[4][4]) {
+    int sum = 0;
+    for (int i = 0; i < 4; i++) {
+        sum += mat[i][i]; 
+    }
+    return sum;
+}
+
+
+int antiDiagonalSum(int mat[4][4]) {
+    int sum = 0;
+    for (int i = 0; i < 4; i++) {
+        sum += mat[i][4 - 1 - i]; 
+    }
+    return sum;
+}
+
+int main() {
+    int matrix[4][4],diagonal,antiDiagonal;
+    printf("Enter elements of the 4x4 matrix:\n");
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("Enter element : ");
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    
+    printf("\nThe matrix is:\n");
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            printf("%d\t", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+     diagonal = diagonalSum(matrix);
+    printf("\nSum of diagonal elements: %d\n", diagonal);
+
+
+     antiDiagonal = antiDiagonalSum(matrix);
+    printf("Sum of anti-diagonal elements: %d\n", antiDiagonal);
+
+    return 0;
+}
